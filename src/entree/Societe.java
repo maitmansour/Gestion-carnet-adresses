@@ -17,5 +17,6 @@ public class Societe implements Entree{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 
 }
