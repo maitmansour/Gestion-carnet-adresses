@@ -21,6 +21,7 @@ package entree;
 	/*public boolean recherche(String s){
 	//TODO
 	}*/
+	   
 	
 	public String toString(Presentation pre,Sens sen){
 	if(genre==NOM_PRENOMS && genre==ABREGE){
