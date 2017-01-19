@@ -8,18 +8,20 @@ package entree;
 	   private Societe societe;
 	   private String fonction;
 	   
-	   public Personne(String nom, String[] prenoms, Genre genre, Personne conjoint, Societe societe, String fonction, Sens sens, Presentation presentation) {
-			super();
+	   public Personne(String nom, String[] prenoms, Genre genre, Personne conjoint, Societe societe, String fonction) {
 			this.nom = nom;
 			this.prenoms = prenoms;
 			this.genre = genre;
 			this.conjoint = conjoint;
 			this.societe = societe;
 			this.fonction = fonction;
+			//System.out.println("  Constructeur  ");
 		}
 	   
 	
 	public String toString(Presentation pre,Sens sen){
+	//	System.out.println("  ToString Debut  ");
+
 		String result="";
 //Genre Homme ou Femme
 		if(this.genre==Genre.HOMME){
@@ -40,6 +42,7 @@ package entree;
 			for (String prenom : prenoms) {
 				if(i==0){
 				result+=prenom+ " ";
+				i++;
 				}else{
 					result+=prenom.substring(0, 1) + ". ";
 				}
@@ -54,9 +57,10 @@ package entree;
 		}
 		
 	if(sen==Sens.NOM_PRENOMS){
-		result+=" "+nom;		
-	}else{
 		result=nom+" "+result;		
+
+	}else{
+		result+=" "+nom;
 	}
 	
 //Societé
@@ -66,8 +70,8 @@ package entree;
 		result+=" ("+societe.toString()+")";
 		break;
 	case COMPLET:
-		result+="    -Societé : "+societe.toString();
-		result+="    -Fonction : "+fonction;
+		result+="\n"+"    -Societé : "+societe.toString();
+		result+="\n"+"    -Fonction : "+fonction;
 						
 		break;
 	}

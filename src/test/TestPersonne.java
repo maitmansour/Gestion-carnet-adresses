@@ -10,9 +10,9 @@ public class TestPersonne {
 		prenoms[0]="Jhone";
 		prenoms[1]="Deuxieme";
 		prenoms[2]="Troisieme";
-		Personne personne = new Personne("Doe", prenoms, Genre.HOMME, null, societe, "Directeur", Sens.PRENOMS_NOM, Presentation.COMPLET);
-		
-		System.out.println(personne.toString());
+		Personne personne = new Personne("Doe", prenoms, Genre.HOMME, null, societe, "Directeur");
+		//System.out.println("  Main  ");
+		System.out.println(personne.toString(Presentation.SIMPLE,Sens.PRENOMS_NOM));
 	}
 
 }
