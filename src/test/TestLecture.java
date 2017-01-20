@@ -8,5 +8,6 @@ public class TestLecture {
 		carnet.lectureFichier("C:\\Users\\NUMIDEA\\Desktop\\filename.txt");
 		System.out.println(carnet.toString());
 	}
+	
 
 }
