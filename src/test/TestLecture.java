@@ -6,7 +6,7 @@ public class TestLecture {
 		Carnet carnet = new Carnet();
 		//C:\Users\NUMIDEA\Desktop\filename.txt
 		carnet.lectureFichier("C:\\Users\\NUMIDEA\\Desktop\\filename.txt");
-
+		System.out.println(carnet.toString());
 	}
 
 }

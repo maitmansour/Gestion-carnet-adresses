@@ -12,7 +12,7 @@ public class TestPersonne {
 		prenoms[2]="Troisieme";
 		Personne personne = new Personne("Doe", prenoms, Genre.HOMME, null, societe, "Directeur");
 		//System.out.println("  Main  ");
-		System.out.println(personne.toString(Presentation.SIMPLE,Sens.PRENOMS_NOM));
+		System.out.println(personne.toString(Presentation.COMPLET,Sens.PRENOMS_NOM));
 	}
 
 }
