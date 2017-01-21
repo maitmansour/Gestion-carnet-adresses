@@ -62,8 +62,6 @@ public class Carnet {
 						for (String prenom : prenoms) {
 						//	System.out.println(prenom);
 						}
-						//Id personnes ??
-						//Tableau de type ?
 						Genre genre;
 						if (lines[4].equalsIgnoreCase("H")) {
 							genre=Genre.HOMME;
@@ -128,49 +126,72 @@ public class Carnet {
 	
 
 	public void affichage(Ordre ordre, Presentation presentation, Sens sens) {
-	 affichageCommun(entrees, ordre, presentation, sens);
+	 affichageCommun(getEntrees(), ordre, presentation, sens);
 	}
 	public void affichageSelection(Ordre ordre, Presentation presentation, Sens sens) {
-		 affichageCommun(selectionnees, ordre, presentation, sens);
+		 affichageCommun(getSelectionnees(), ordre, presentation, sens);
 		}
 
 		
 		
 	
-	
-	
 	 public void ajouterEntrée(Entree entree){
-		 entrees.add(entree);
+		 if (!getEntrees().contains(entree)) {
+			 getEntrees().add(entree);
+
+		}
 	 }
 	 /*+ 
 + recherche(String): Entree[]*/
 	 
-	/* List<Entree> recherch(String tofind){
-		 int index entrees.indexOf();
-		 //a faire plus tard
-	 }*/
+	public Entree recherche(String tofind){
+		 Entree tmpEntree;
+		for (int i = 0; i < getEntrees().size(); i++) {
+			 tmpEntree= compareEntrees(tofind, getEntrees().get(i));
+
+			if (tmpEntree!=null) {
+				return tmpEntree;
+			}
+		}
+ 		System.out.println(tofind+" Non Trouvée !");
+		return null;
+	 }
 	 
+     public Entree compareEntrees(String tofind, Entree entree)
+     {
+     	if (getPersonneOUSocieteNom(entree).compareTo(tofind)==0) {
+     		System.out.println(tofind+" Trouvée !");
+				return entree;
+			}else{
+				return  null;
+			}
+     }
 	 public void selection(Entree toadd){
-		 ajouterEntrée(toadd);
-		 selectionnees.add(toadd);
+		 if (!getEntrees().contains(toadd)) {
+			 ajouterEntrée(toadd);
+			 getSelectionnees().add(toadd);
+
+		}
 	 }
 
-	/* public void selection(String toadd){
-		 Entree toaddentree = entrees.recherche(toadd);
+	 public void selection(String toadd){
+		 Entree toaddentree = recherche(toadd);
 		 
 		 if (toaddentree != null) {
-			 selectionnees.add(toaddentree);
+			 selection(toaddentree);
+			 
+		 }
 	 }
-	 }
-	 */
+	 
 	 public void selection(List<Entree>  toaddArray){
-		 	 entrees.addAll(toaddArray);
-			 selectionnees.addAll(toaddArray);
+		 for( Entree entree : toaddArray){
+			 selection(entree);
+		 }
 	 
 	 }
 	 
 	 public void deselection(){
-		 selectionnees.clear();
+		 getSelectionnees().clear();
 	 }
 	 
 		

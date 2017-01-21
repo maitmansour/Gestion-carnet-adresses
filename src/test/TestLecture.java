@@ -28,10 +28,14 @@ public class TestLecture {
 		List<Entree>  tmpArray = new ArrayList<Entree>();
 			tmpArray.add(personne);
 			tmpArray.add(societe);
-		carnet.selection(tmpArray);
+			carnet.selection(tmpArray);
+			carnet.selection(tmpArray);
 		//carnet.deselection();
-		carnet.affichageSelection(Ordre.DECROISSANT, Presentation.ABREGE, Sens.NOM_PRENOMS);
+		carnet.selection("Dumbledore");
 		
+		carnet.affichageSelection(Ordre.DECROISSANT, Presentation.ABREGE, Sens.NOM_PRENOMS);
+		//carnet.affichage(Ordre.DECROISSANT, Presentation.ABREGE, Sens.NOM_PRENOMS);
+
 	}
 	
 
