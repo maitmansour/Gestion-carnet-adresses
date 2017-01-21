@@ -83,9 +83,9 @@ public class Carnet {
 
 	}
 	
-	public void affichage(Ordre ordre, Presentation presentation, Sens sens) {
+	public void affichageCommun(List<Entree> entreesTMP, Ordre ordre, Presentation presentation, Sens sens) {
 		System.out.println("Affichage : ");
-		List<Entree> Sortedentrees=entrees;
+		List<Entree> Sortedentrees=entreesTMP;
 
 		if (ordre==Ordre.CROISSANT) {
 			Collections.sort(Sortedentrees, new Comparator<Entree>(){
@@ -125,6 +125,57 @@ public class Carnet {
 		}
 		return ((Societe) entree).toString();
 	}
+	
+	
+	
+	
+	
+
+	public void affichage(Ordre ordre, Presentation presentation, Sens sens) {
+	 affichageCommun(entrees, ordre, presentation, sens);
+	}
+	public void affichageSelection(Ordre ordre, Presentation presentation, Sens sens) {
+		 affichageCommun(selectionnees, ordre, presentation, sens);
+		}
+
+		
+		
+	
+	
+	
+	 public void ajouterEntrée(Entree entree){
+		 entrees.add(entree);
+	 }
+	 /*+ 
++ recherche(String): Entree[]
++ affichageSelection(Ordre, Presentation, Sens): void*/
+	 
+	/* List<Entree> recherch(String tofind){
+		 int index entrees.indexOf();
+		 //a faire plus tard
+	 }*/
+	 
+	 public void selection(Entree toadd){
+		 selectionnees.add(toadd);
+	 }
+
+	/* public void selection(String toadd){
+		 Entree toaddentree = entrees.recherche(toadd);
+		 
+		 if (toaddentree != null) {
+			 selectionnees.add(toaddentree);
+	 }
+	 }
+	 */
+	 public void selection(List<Entree>  toaddArray){
+			 selectionnees.addAll(toaddArray);
+	 
+	 }
+	 
+	 public void deselection(){
+		 selectionnees.clear();
+	 }
+	 
 		
 	
 }
