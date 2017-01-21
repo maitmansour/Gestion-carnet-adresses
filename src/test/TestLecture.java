@@ -8,6 +8,7 @@ public class TestLecture {
 		Carnet carnet = new Carnet();
 		carnet.lectureFichier("C:\\Users\\NUMIDEA\\Desktop\\filename.txt");
 		carnet.affichage(Ordre.DECROISSANT, Presentation.ABREGE, Sens.NOM_PRENOMS);
+		
 	}
 	
 
