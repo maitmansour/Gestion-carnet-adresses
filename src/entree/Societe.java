@@ -25,12 +25,6 @@ public class Societe implements Entree{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public String toString(Presentation presentation, Sens sens) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 
 }
