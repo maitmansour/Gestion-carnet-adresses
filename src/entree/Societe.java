@@ -15,15 +15,20 @@ public class Societe implements Entree{
 		setRaisonSociale(raisonSociale);
 	}
 
-	@Override
-	public String toString() {
-		return 	getRaisonSociale();
-		}
 
 	@Override
 	public boolean recherche() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String toString(Presentation presentation, Sens sens) {
+		return 	null;
+	}	
+	@Override
+	public String toString() {
+		return 	getRaisonSociale();
 	}
 	
 
