@@ -33,50 +33,23 @@ public class Carnet {
 	public void setSelectionnees( List<Entree> selectionnees) {
 		this.selectionnees = selectionnees;
 	}
+	
+	
 	public void lectureFichier(String FILENAME) {
 		try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
 			String sCurrentLine ="";
 			//FORMAT : ID;TYPE;CHAMP1;CHAMP2;CHAMP3
 			while ((sCurrentLine = br.readLine()) != null) {
-
-				//System.out.println(sCurrentLine);
-					String[] lines = sCurrentLine.split(";");
-
-					switch (lines[1]) {
-					case "SOCIETE":
-						entrees.add(Integer.parseInt(lines[0]),new Societe(lines[2]));
-						break;
-
-					case "PERSONNE":
-						Personne tmpPers ;
-						switch (lines[5]) {
-						case "":
-							 tmpPers =null;
-							break;
-						default:
-							 tmpPers = (Personne) entrees.get(Integer.parseInt(lines[5]));
-							break;
-						}
-						Societe tmpSoc = (Societe) entrees.get(Integer.parseInt(lines[6]));
-						String[] prenoms = lines[2].split(",");
-						for (String prenom : prenoms) {
-						//	System.out.println(prenom);
-						}
-						Genre genre;
-						if (lines[4].equalsIgnoreCase("H")) {
-							genre=Genre.HOMME;
-						}else{
-							genre=Genre.FEMME;
-
-						}
-						entrees.add(Integer.parseInt(lines[0]),new Personne(lines[3], prenoms, genre, tmpPers, tmpSoc, lines[7]));
-						break;
+					try {
+						ajouterEntree(sCurrentLine);
+					} catch (Exception e) {
+						System.out.println("Format text erronée AUCUNE INSERTION N'EST EFFECTUEE");
 					}
-
-			}
+			}	
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("FICHIER erronée AUCUNE INSERTION N'EST EFFECTUEE");
+			return;
 		}
 
 	}
@@ -135,12 +108,50 @@ public class Carnet {
 		
 		
 	
-	 public void ajouterEntrée(Entree entree){
+	 public void ajouterEntree(Entree entree){
 		 if (!getEntrees().contains(entree)) {
 			 getEntrees().add(entree);
 
 		}
+	 }	 
+	 public void ajouterEntree(String sCurrentLine) throws Exception{
+		 				String[] lines = sCurrentLine.split(";");
+
+				switch (lines[1]) {
+				case "SOCIETE":
+					entrees.add(Integer.parseInt(lines[0]),new Societe(lines[2]));
+					break;
+
+				case "PERSONNE":
+					Personne tmpPers ;
+					switch (lines[5]) {
+					case "":
+						 tmpPers =null;
+						break;
+					default:
+						 tmpPers = (Personne) entrees.get(Integer.parseInt(lines[5]));
+						break;
+					}
+					Societe tmpSoc = (Societe) entrees.get(Integer.parseInt(lines[6]));
+					String[] prenoms = lines[2].split(",");
+					for (String prenom : prenoms) {
+					}
+					Genre genre;
+					if (lines[4].equalsIgnoreCase("H")) {
+						genre=Genre.HOMME;
+					}else{
+						genre=Genre.FEMME;
+
+					}
+					entrees.add(Integer.parseInt(lines[0]),new Personne(lines[3], prenoms, genre, tmpPers, tmpSoc, lines[7]));
+					break;
+				default:
+					throw new Exception("Format erronée");
+				}
+
 	 }
+	 
+	 
 	 /*+ 
 + recherche(String): Entree[]*/
 	 
@@ -150,17 +161,18 @@ public class Carnet {
 			 tmpEntree= compareEntrees(tofind, getEntrees().get(i));
 
 			if (tmpEntree!=null) {
+		 		System.out.println("-Recherche : "+tofind+" est Trouvée !");
 				return tmpEntree;
 			}
 		}
- 		System.out.println(tofind+" Non Trouvée !");
+ 		System.out.println("-Recherche : "+tofind+" Non Trouvée !");
 		return null;
 	 }
 	 
      public Entree compareEntrees(String tofind, Entree entree)
      {
      	if (getPersonneOUSocieteNom(entree).compareTo(tofind)==0) {
-     		System.out.println(tofind+" Trouvée !");
+     		System.out.print("-Selection : ");
 				return entree;
 			}else{
 				return  null;
@@ -168,7 +180,7 @@ public class Carnet {
      }
 	 public void selection(Entree toadd){
 		 if (!getEntrees().contains(toadd)) {
-			 ajouterEntrée(toadd);
+			 ajouterEntree(toadd);
 			 getSelectionnees().add(toadd);
 
 		}

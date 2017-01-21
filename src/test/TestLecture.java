@@ -9,7 +9,7 @@ public class TestLecture {
 
 	public static void main(String[] args) {
 		Carnet carnet = new Carnet();
-		carnet.lectureFichier("C:\\Users\\user\\Downloads\\filename.txt");
+		carnet.lectureFichier("C:\\Users\\NUMIDEA\\Desktop\\filename.txt");
 		//Test Ajouter entree
 		Societe societe = new Societe("TEST TEST AJOUT SOCIETE");
 		String prenoms[]= new String[3];
