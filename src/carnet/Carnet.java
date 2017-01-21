@@ -71,6 +71,42 @@ public class Carnet {
 
 	}
 	
+	 public void ajouterEntrée(Entree entree){
+		 entrees.add(entree);
+	 }
+	 /*+ 
+ + recherche(String): Entree[]
+ + affichageSelection(Ordre, Presentation, Sens): void*/
+	 
+	 List<Entree> recherch(String tofind){
+		 int index entrees.indexOf();
+		 //a faire plus tard
+	 }
+	 
+	 public void selection(Entree toadd){
+		 selectionnees.add(toadd);
+	 }
+
+	 public void selection(String toadd){
+		 Entree toaddentree = entrees.recherche(toadd);
+		 
+		 if (toaddentree) {
+			 selectionnees.add(toaddentree);
+	 }
+	 }
+	 
+	 public void selection(List<Entree>  toaddArray){
+			 selectionnees.addAll(toaddArray);
+	 
+	 }
+	 
+	 public void deselection(){
+		 selectionnees.clear();
+	 }
+	 
+	 
+
+	
 	@Override
 	public String toString() {
 		//return "Carnet [entrees=" + Arrays.toString(entrees) + ", selectionnees=" + Arrays.toString(selectionnees)
