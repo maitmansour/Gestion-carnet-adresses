@@ -126,10 +126,6 @@ public class Carnet {
 		return ((Societe) entree).toString();
 	}
 	
-	
-	
-	
-	
 
 	public void affichage(Ordre ordre, Presentation presentation, Sens sens) {
 	 affichageCommun(entrees, ordre, presentation, sens);
@@ -147,8 +143,7 @@ public class Carnet {
 		 entrees.add(entree);
 	 }
 	 /*+ 
-+ recherche(String): Entree[]
-+ affichageSelection(Ordre, Presentation, Sens): void*/
++ recherche(String): Entree[]*/
 	 
 	/* List<Entree> recherch(String tofind){
 		 int index entrees.indexOf();
@@ -156,6 +151,7 @@ public class Carnet {
 	 }*/
 	 
 	 public void selection(Entree toadd){
+		 ajouterEntrée(toadd);
 		 selectionnees.add(toadd);
 	 }
 
@@ -168,6 +164,7 @@ public class Carnet {
 	 }
 	 */
 	 public void selection(List<Entree>  toaddArray){
+		 	 entrees.addAll(toaddArray);
 			 selectionnees.addAll(toaddArray);
 	 
 	 }
