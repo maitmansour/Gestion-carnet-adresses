@@ -59,9 +59,9 @@ import carnet.Carnet;
 			System.out.println("=======================================================");
 			System.out.println("Menu d'insertions possible pour Gestion Carnet Adresses");
 			System.out.println("=======================================================");
-			System.out.println("7.Insertion Par fichier");
-			System.out.println("8.Insertion par informations (Entree)");
-			System.out.println("9.Insertion par Tableau d'informations");
+			System.out.println("1.Insertion Par fichier");
+			System.out.println("2.Insertion par informations (Entree)");
+			System.out.println("3.Insertion par Tableau d'informations");
 			System.out.println("10.Retour");
 			}
 
@@ -70,9 +70,9 @@ import carnet.Carnet;
 			System.out.println("=============================================================");
 			System.out.println("Menu de selectionnement possible pour Gestion Carnet Adresses");
 			System.out.println("=============================================================");
-			System.out.println("11.Selectionner Par Nom");
-			System.out.println("12.Selectionner par informations (Entree)");
-			System.out.println("13.Selectionner par Tableau d'informations");
+			System.out.println("1.Selectionner Par Nom");
+			System.out.println("2.Selectionner par informations (Entree)");
+			System.out.println("3.Selectionner par Tableau d'informations");
 			System.out.println("14.Retour");
 		}
 
@@ -94,7 +94,7 @@ import carnet.Carnet;
 
 
 		public static void select(){
-
+			Carnet tmpCarnet = new Carnet();
 			Carnet carnet = new Carnet();
 			int nb,val, pos, ch,yes=0;
 			String tofind;
@@ -113,23 +113,27 @@ import carnet.Carnet;
 						Insertionmenu();
 						ch=sc.nextInt();
 								switch (ch) {
-								case 7:
+								case 1:
 									System.out.println("Inserez le lien de fichier exemple ANTISLASH DOUBLEMENT ECRITE ! : C:\\Users\\NUMIDEA\\Desktop\\filename.txt");
 									tofind = sc.next();
 									carnet.lectureFichier(tofind);
 									break;
-									case 8:
-									System.out.println("Inserez les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
-									tofind = sc.next();
+									case 2:
+									System.out.print("Inserez les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
+									sc.nextLine();
+									tofind = sc.nextLine();
 									carnet.ajouterEntree(tofind);
 									break;
-									case 9:
+									case 3:
 									System.out.println("Combien d'information souhaitez vous insérer ?");
 									System.out.println("Inserez les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
 									nb = sc.nextInt();
 										for (int i=1;i<=nb ; i++) {
 											System.out.println("Inserez la : "+i+" information ");
-											tofind = sc.next();
+											if (i==1) {
+												sc.nextLine();
+											}
+											tofind = sc.nextLine();
 											carnet.ajouterEntree(tofind);
 										}
 									break;
@@ -139,22 +143,32 @@ import carnet.Carnet;
 						Selectionnementmenu();
 						ch=sc.nextInt();
 								switch (ch) {
-								case 11:
+								case 1:
 									System.out.println("Entrer le nom : ");
 									tofind = sc.next();
 									carnet.selection(tofind);
 									break;
-									case 12:
+									case 2:
 									System.out.println("Pour selectionner par informations d'entrees, veuillez inserer les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
-									tofind = sc.next();
-									//TO DO LATER...	
-									carnet.selection(tofind);
+									sc.nextLine();									
+									tofind = sc.nextLine();
+									carnet.ajouterEntree(tofind);
+									carnet.selection(carnet.getEntrees().get(carnet.getEntrees().size() - 1));
 									break;
-									case 13:
-									System.out.println("Pour selectionner par informations d'entrees, veuillez inserer les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
-									tofind = sc.next();
-									//TO DO LATER...	
-									carnet.selection(tofind);
+									case 3:
+									System.out.println("Pour selectionner tableau, par informations d'entrees, veuillez inserer les informations : \n -Personne : ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION \n -Societe : ID;SOCIETE;RAISON_SOCIALE");
+									nb = sc.nextInt();
+									for (int i=1;i<=nb ; i++) {
+										System.out.println("Inserez la : "+i+" information ");
+										if (i==1) {
+											sc.nextLine();
+										}
+										tofind = sc.nextLine();
+										tmpCarnet.ajouterEntree(tofind);
+										tmpCarnet.selection(tmpCarnet.getEntrees().get(tmpCarnet.getEntrees().size() - 1));
+									}
+									carnet.selection(tmpCarnet.getSelectionnees());
+									tmpCarnet.deselection();
 									break;
 								}
 
@@ -164,7 +178,8 @@ import carnet.Carnet;
 						break;
 						case 4:
 						System.out.println("quelle valeur cherchez vous ?");
-						tofind = sc.next();
+						sc.nextLine();
+						tofind = sc.nextLine();
 						carnet.recherche(tofind);
 						break;
 						case 5:
