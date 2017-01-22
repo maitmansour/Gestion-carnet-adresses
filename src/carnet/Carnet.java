@@ -183,6 +183,8 @@ public class Carnet {
 			 ajouterEntree(toadd);
 			 getSelectionnees().add(toadd);
 
+		}else{
+			 getSelectionnees().add(toadd);
 		}
 	 }
 
