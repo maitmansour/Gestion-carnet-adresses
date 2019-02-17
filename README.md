@@ -1,7 +1,7 @@
-# TP1 : Gestion-Carnet-Adresses
+# Gestion-Carnet-Adresses
 ## Introduction
 
-Ce projet est éffectué par     `BELGHARBI Meryem` &     `AIT MANSOUR Mohamed`
+Ce projet est Ã©ffectuÃ© par     `BELGHARBI Meryem` &     `AIT MANSOUR Mohamed`
 
 ```
 belgharbimeryem@gmail.com
@@ -11,19 +11,19 @@ mohamed.ait-mansour@etu.univ-lehavre.fr
 ```
 
 ## L'application
-Cette Application permet de gérer un carnet d’adresses.Un carnet d’adresses est constitué d’entrées qui peuvent représenter des personnes ou des sociétés. Les informations et la présentation sont différentes s’il s’agis d’une personne ou d’une société. Les tâches possibles sont :
+Cette Application permet de gÃ©rer un carnet dâ€™adresses.Un carnet dâ€™adresses est constituÃ© dâ€™entrÃ©es qui peuvent reprÃ©senter des personnes ou des sociÃ©tÃ©s. Les informations et la prÃ©sentation sont diffÃ©rentes sâ€™il sâ€™agis dâ€™une personne ou dâ€™une sociÃ©tÃ©. Les tÃ¢ches possibles sont :
   - Insertion
   - Selectionnement
   - Deselectionnement
   - Recherche
   - ...
 
-Ci-joint le code `JAVA` du menu permettant de gérer l'application :
+Ci-joint le code `JAVA` du menu permettant de gÃ©rer l'application :
 
 ```java
 public static void showmenu(){
 System.out.println("=======================================================");
-System.out.println("Menu d'opérations possible pour Gestion Carnet Adresses");
+System.out.println("Menu d'opÃ©rations possible pour Gestion Carnet Adresses");
 System.out.println("=======================================================");
 System.out.println("1.Insertion (MENU)");
 System.out.println("2.Selectionnement (MENU)");
@@ -38,7 +38,7 @@ Pour tester l'application, notament l'insertion par fichier, merci d'utiliser un
 ```
 C:\\Users\\User\\Desktop\\filename.txt
 ```
-pour tester également l'ajout ou la selection, merci de respecter la format suivante pour `PERSONNE`:
+pour tester Ã©galement l'ajout ou la selection, merci de respecter la format suivante pour `PERSONNE`:
 ```
 ID;PERSONNE;PRENOMS;NOM;GENRE;ID_CONJOINT;ID_SOCIETE;FONCTION
 ```
@@ -47,20 +47,20 @@ Ou la format ci-dessous pour `SOCIETE` :
 ID;SOCIETE;RAISON_SOCIALE
 ```
 
-Pour l'utilisation des fichiers, il faut respecter certains régles (ex. conjoint existant, et societé d'une personne existante), pour ça merci d'utiliser ce fichier de test :
+Pour l'utilisation des fichiers, il faut respecter certains rÃ©gles (ex. conjoint existant, et societÃ© d'une personne existante), pour Ã§a merci d'utiliser ce fichier de test :
 ```
 0;SOCIETE;Premiere Societe
-1;PERSONNE;Cremier,James;Potter;H;;0;Elève
+1;PERSONNE;Cremier,James;Potter;H;;0;ElÃ¨ve
 2;PERSONNE;Clbus,Perceval,Wulfric,Brian;Dumbledore;H;1;0;Directeur
 3;SOCIETE;Une societe SARL
-4;PERSONNE;Drry,James;XXX;H;2;3;Elève
+4;PERSONNE;Drry,James;XXX;H;2;3;ElÃ¨ve
 ```
-## Dificultés
-Nous avons renctontrés au début quelques difiultés que nous avons dépassés ensemble, notament en :
+## DificultÃ©s
+Nous avons renctontrÃ©s au dÃ©but quelques difiultÃ©s que nous avons dÃ©passÃ©s ensemble, notament en :
  - Familiarisation avec GitLab
- - Erreurs avec la création des branches
- - Dificultés de programmation 
+ - Erreurs avec la crÃ©ation des branches
+ - DificultÃ©s de programmation 
  
 
 ## Conclusion
-Merci de prendre en cosédiration que `nous avons travailler ensemble sur les mêmes tâches` durant le TP de début jusqu'à la fin...
+Merci de prendre en cosÃ©diration que `nous avons travailler ensemble sur les mÃªmes tÃ¢ches` durant le TP de dÃ©but jusqu'Ã  la fin...
