@@ -7,7 +7,7 @@ Ce projet est éffectué par     `BELGHARBI Meryem` &     `AIT MANSOUR Mohamed`
 belgharbimeryem@gmail.com
 ```
 ```
-mohamed.ait-mansour@etu.univ-lehavre.fr
+mohamedaitmansour95@gmail.com
 ```
 
 ## L'application
